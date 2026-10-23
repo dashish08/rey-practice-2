@@ -42,7 +42,7 @@ class TestTaskManager(unittest.TestCase):
         # специально неверный тест(ожидание 3 задач)
         self.manager.add_task("Первая")
         self.manager.add_task("Вторая")
-        self.assertEqual(len(self.manager.get_tasks()), 3)
+        self.assertEqual(len(self.manager.get_tasks()), 2)
 
 
 if __name__ == "__main__":
