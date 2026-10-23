@@ -40,3 +40,7 @@ class TaskManager:
         before = len(self._tasks)
         self._tasks = [t for t in self._tasks if not t["done"]]
         return before - len(self._tasks)
+
+    # возвращает количество задач
+    def count_tasks(self, done=None):
+        return len(self.get_tasks(done))
