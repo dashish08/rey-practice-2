@@ -25,7 +25,7 @@ class TaskManager:
     def complete_task(self, task_id):
         self._find(task_id)["done"] = True
 
-    # возвращает задачи: все, только выполненные (True) или невыполненные (False)
+    # возвращает все задачи, только выполненные (True) или невыполненные (False)
     def get_tasks(self, done=None):
         return [dict(t) for t in self._tasks if done is None or t["done"] == done]
 
@@ -35,8 +35,12 @@ class TaskManager:
                 return task
         raise KeyError(f"Задача с id={task_id} не найдена")
 
-    # удаляет все выполненные задачи и возвращает, сколько их было
+    # удаляет все выполненные задачи и возвращает количество удалённых задач (0, если выполненных нет)
     def clear_completed(self):
         before = len(self._tasks)
         self._tasks = [t for t in self._tasks if not t["done"]]
         return before - len(self._tasks)
+
+    # возвращает количество задач
+    def count_tasks(self, done=None):
+        return len(self.get_tasks(done))

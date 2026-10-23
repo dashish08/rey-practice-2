@@ -51,6 +51,14 @@ class TestTaskManager(unittest.TestCase):
         self.assertEqual(self.manager.clear_completed(), 1)
         self.assertEqual(len(self.manager.get_tasks()), 1)
 
+    def test_count_tasks(self):
+        first = self.manager.add_task("Первая")
+        self.manager.add_task("Вторая")
+        self.manager.complete_task(first)
+        self.assertEqual(self.manager.count_tasks(), 2)
+        self.assertEqual(self.manager.count_tasks(done=True), 1)
+        self.assertEqual(self.manager.count_tasks(done=False), 1)
+
 
 if __name__ == "__main__":
     unittest.main()
