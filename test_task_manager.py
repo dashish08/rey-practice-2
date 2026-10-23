@@ -1,10 +1,11 @@
 import unittest
 from task_manager import TaskManager
 
+
 class TestTaskManager(unittest.TestCase):
 
     def setUp(self):
-        #setUp запускается перед каждым тестом
+        # setUp запускается перед каждым тестом
         self.manager = TaskManager()
 
     def test_add_task_returns_id(self):
@@ -37,5 +38,7 @@ class TestTaskManager(unittest.TestCase):
         self.assertEqual(len(self.manager.get_tasks(done=True)), 1)
         self.assertEqual(len(self.manager.get_tasks(done=False)), 1)
 
+
 if __name__ == "__main__":
     unittest.main()
+
