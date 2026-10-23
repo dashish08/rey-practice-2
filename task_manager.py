@@ -25,7 +25,7 @@ class TaskManager:
     def complete_task(self, task_id):
         self._find(task_id)["done"] = True
 
-    # возвращает задачи: все, только выполненные (True) или невыполненные (False)
+    # возвращает все задачи, только выполненные (True) или невыполненные (False)
     def get_tasks(self, done=None):
         return [dict(t) for t in self._tasks if done is None or t["done"] == done]
 
