@@ -38,11 +38,11 @@ class TestTaskManager(unittest.TestCase):
         self.assertEqual(len(self.manager.get_tasks(done=True)), 1)
         self.assertEqual(len(self.manager.get_tasks(done=False)), 1)
 
-    """def test_deliberately_failing(self):
+    def test_deliberately_failing(self):
         # специально неверный тест(ожидание 3 задач)
         self.manager.add_task("Первая")
         self.manager.add_task("Вторая")
-        self.assertEqual(len(self.manager.get_tasks()), 2)"""
+        self.assertEqual(len(self.manager.get_tasks()), 2)
 
 
 if __name__ == "__main__":
