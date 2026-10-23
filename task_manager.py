@@ -34,3 +34,9 @@ class TaskManager:
             if task["id"] == task_id:
                 return task
         raise KeyError(f"Задача с id={task_id} не найдена")
+
+    # удаляет все выполненные задачи и возвращает, сколько их было
+    def clear_completed(self):
+        before = len(self._tasks)
+        self._tasks = [t for t in self._tasks if not t["done"]]
+        return before - len(self._tasks)
